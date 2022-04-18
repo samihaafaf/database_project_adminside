@@ -27,16 +27,7 @@
     //close connection
     mysqli_close($conn);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>closed complaint details list</title>
-    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/minty/bootstrap.min.css">
-</head>
-<body>
+<?php include("header.php")?>
     <div class="container">
     <h1> closed complaint detail</h1>
             <h3> complaint id: <?php echo $complaints['c_id']; ?></h3>
@@ -46,9 +37,6 @@
             <h5>Complaint Remark: <?php echo $remark['details']; ?></h5>
             <h5>Date of issue: <?php echo $complaints['lodge_date']; ?></h5>
     </div>
-
-</body>
-</html>
-
+<?php include("footer.php")?>
 
 

@@ -5,7 +5,7 @@
 
     require('config/db.php');
 
-    $query = "SELECT * FROM complaints where state = 'inProcess'";
+    $query = "SELECT * FROM complaints where state = 'inprocess'";
 
     $result = mysqli_query($conn,$query);
 
@@ -18,31 +18,49 @@
     //close connection
     mysqli_close($conn);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>complaints list</title>
-    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/minty/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-    <h1> COMPLAINT LIST updated</h1>
-    <h2>InProcess complaints</h2>
-    <?php foreach($complaints as $com) : ?>
-        <div class="well">
-        <h3><?php echo 'complaint id: '. $com['c_id']; ?></h3>
-        <small> category: <?php echo $com['category_name']; ?></small>
-        <a href="inprocess_det.php?c_id=<?php echo $com['c_id']; ?>">Details</a>
+<?php include("header.php")?>
+    
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">In Process LIST</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Lodged by user</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Date of Issue</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($complaints as $com) : ?>
+                        <tr>
+                            <td><?php echo $com['c_id'];?></td>
+                            <td><?php echo $com['user_id'];?></td>
+                            <td><?php echo $com['category_name'];?></td>
+                            <td><?php echo $com['state'];?></td>
+                            <td><?php echo $com['lodge_date'];?></td>
+                            <td><a href="complaint_details.php?c_id=<?php echo $com['c_id']; ?>">Edit</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
-    <?php endforeach; ?>
     </div>
+</div>
 
-</body>
-</html>
+</div>
+<!-- /.container-fluid -->
 
-
+<?php include("footer.php")?>
 
 

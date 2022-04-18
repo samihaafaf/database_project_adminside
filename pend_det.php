@@ -23,16 +23,7 @@
     //close connection
     mysqli_close($conn);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pending complaint details list</title>
-    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/minty/bootstrap.min.css">
-</head>
-<body>
+<?php include("header.php")?>
     <div class="container">
     <h1> pending complaint detail</h1>
             <h3> complaint id: <?php echo $complaints['c_id']; ?></h3>
@@ -40,7 +31,7 @@
             <p>Detail of complaint: <?php echo $complaints['details']; ?></p>
             <h5>Date of issue: <?php echo $complaints['lodge_date']; ?></h5>
     </div>
-
+<?php include("footer.php")?>
 </body>
 </html>
 

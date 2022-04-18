@@ -8,6 +8,4 @@
 
         echo 'try again honey'.mysqli_connect_errno();
     }
-    else{
-        echo 'well done!';
-    }
+?>
