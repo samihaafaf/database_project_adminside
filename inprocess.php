@@ -29,7 +29,7 @@
 </head>
 <body>
     <div class="container">
-    <h1> COMPLAINT LIST</h1>
+    <h1> COMPLAINT LIST updated</h1>
     <h2>InProcess complaints</h2>
     <?php foreach($complaints as $com) : ?>
         <div class="well">
