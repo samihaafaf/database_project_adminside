@@ -1,3 +1,23 @@
+<?php 
+// view inorocess comlaints and has buttons to click in them for further
+//work
+
+    require('config/db.php');
+
+    $query = "SELECT username FROM admin where password='bracuproject'";
+
+    $result = mysqli_query($conn,$query);
+
+    //fetch data
+    $admin_info = mysqli_fetch_assoc($result);
+    //echo $admin_info['username'];
+    //FREE RESULT
+    mysqli_free_result($result);
+
+    //close connection
+    mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,16 +58,22 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="index.php"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+          <div class="sidebar-brand-text mx-3">Admin <sup>2</sup></div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
+
+        <li class="nav-item active">
+            <a class="nav-link" href="index.php">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
@@ -64,6 +90,27 @@
                     </div>
                 </div>
             </li>
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+                <a class="nav-link" href="com_per_cat.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Complaint per category</span></a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="com_per_user.php">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Complaint per user</span></a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="com_per_mon.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Complaint per month</span></a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="category.php">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>manage category</span></a>
+        </li>
       </ul>
       <!-- End of Sidebar -->
 
@@ -123,20 +170,8 @@
               </li>
 
               <!-- Nav Item - Alerts -->
-              <li class="nav-item dropdown no-arrow mx-1">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="alertsDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-bell fa-fw"></i>
-                  <!-- Counter - Alerts -->
-                  <span class="badge badge-danger badge-counter">3+</span>
-                </a>
+              
+              
                 <!-- Dropdown - Alerts -->
                 <div
                   class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -188,19 +223,10 @@
               </li>
 
               <!-- Nav Item - Messages -->
-              <li class="nav-item dropdown no-arrow mx-1">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="messagesDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-envelope fa-fw"></i>
+              
+                  
                   <!-- Counter - Messages -->
-                  <span class="badge badge-danger badge-counter">7</span>
+                  
                 </a>
                 <!-- Dropdown - Messages -->
                 <div
@@ -301,7 +327,7 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
+                    ><?php echo $admin_info['username'];?></span
                   >
                   <img
                     class="img-profile rounded-circle"
@@ -313,24 +339,14 @@
                   class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
+                  
                   <div class="dropdown-divider"></div>
                   <a
                     class="dropdown-item"
-                    href="#"
+                    href='#'
                     data-toggle="modal"
                     data-target="#logoutModal"
+                    
                   >
                     <i
                       class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"

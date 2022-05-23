@@ -3,7 +3,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2021</span>
+              <span>Copyright &copy; samiha_370Project 2022</span>
             </div>
           </div>
         </footer>
@@ -51,7 +51,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="#">Logout</a>
           </div>
         </div>
       </div>

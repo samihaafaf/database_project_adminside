@@ -5,7 +5,7 @@
 
     require('config/db.php');
 
-    $query = "SELECT * FROM complaints where state = 'pending'";
+    $query = "SELECT * FROM complaints where state is null";
 
     $result = mysqli_query($conn,$query);
 
@@ -38,6 +38,7 @@
                         <th>Category</th>
                         <th>Status</th>
                         <th>Date of Issue</th>
+                        <th>details</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -47,8 +48,9 @@
                             <td><?php echo $com['c_id'];?></td>
                             <td><?php echo $com['user_id'];?></td>
                             <td><?php echo $com['category_name'];?></td>
-                            <td><?php echo $com['state'];?></td>
+                            <td><?php echo 'pending';?></td>
                             <td><?php echo $com['lodge_date'];?></td>
+                            <td><?php echo substr($com['details'], 0, 10)."..."; ?></td>
                             <td><a href="complaint_details.php?c_id=<?php echo $com['c_id']; ?>">Edit</a></td>
                         </tr>
                     <?php endforeach; ?>

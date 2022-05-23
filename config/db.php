@@ -1,11 +1,11 @@
 <?php
     //creating connections
-    $conn = mysqli_connect('localhost','root','','370main');
+    $conn = mysqli_connect('localhost','root','','project');
 
     //check connection
     if(mysqli_connect_errno()){
         //connection failed
 
-        echo 'try again honey'.mysqli_connect_errno();
+        echo 'try again'.mysqli_connect_errno();
     }
 ?>

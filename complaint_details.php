@@ -2,22 +2,6 @@
     
     require('config/db.php');
 
-  /*  
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $c_id = $_GET["c_id"];
-        $state = $_POST["state"];
-        update_state($c_id, $state);
-      }
-
-    // Removing the redundant HTML characters if any exist.
-    
-    function update_state($c_id, $state) {
-        echo $c_id;
-        echo $state;
-
-    
-    }
-    */
     $id = mysqli_real_escape_string($conn,$_GET['c_id']);
 
     if(isset($_POST['state'])){
@@ -58,15 +42,19 @@
     <div class="container-fluid">
         <form action="<?php echo $_SERVER["PHP_SELF"]."?c_id=".$id;?>" method="POST" >
             <h1>Complaint detail</h1>
+            <br>
             <h3>Complaint id: <?php echo $complaints['c_id']; ?></h3>
+            <br>
             <h3>Complaint lodged by user: <?php echo $complaints['user_id']; ?></h3>
+            <br>
             <h3>Detail of complaint: <?php echo $complaints['details']; ?></h3>
+            <br>
             <h3>Date of issue: <?php echo $complaints['lodge_date']; ?></h3>
             
             <select class="form-select" aria-label="Default select example" name="state" required>
                 <option value="inprocess" <?php echo ($complaints['state'] == "inprocess") ? ' selected' : '' ?>>In Process</option>
                 <option value="closed"  <?php echo ($complaints['state'] == "closed") ? ' selected' : '' ?>>Closed</option>
-                <option value="pending"  <?php echo ($complaints['state'] == "pending") ? ' selected' : '' ?>>Pending</option>
+                
             </select>
             
             <button type="submit">Save</button>

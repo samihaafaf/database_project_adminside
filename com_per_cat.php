@@ -21,14 +21,18 @@
 ?>
 <?php include("header.php")?>
     <div class="container">
-    <h1> complaints</h1>
-    <h2>complaints per cat</h2>
+    <h2>Complaints per Category</h2>
     <?php foreach($complaints as $com) : ?>
         <div class="well">
-        <h3><?php echo 'In '. $com['category_name'].'there are : '.$com['num'].' complaints'; ?></h3>
+        </br>
+        <h3><?php echo 'In '. $com['category_name'].' there are : '.$com['num'].' complaint(s)'; ?></h3>
         </div>
     <?php endforeach; ?>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 <?php include("footer.php")?>
 </body>
 </html>
