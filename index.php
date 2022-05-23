@@ -7,7 +7,7 @@
     $result = mysqli_query($conn,$query);
 
     //fetch data
-    $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    $users = mysqli_fetch_all($result,MYSQLI_ASSOC); 
 
     //FREE RESULT
     mysqli_free_result($result);
